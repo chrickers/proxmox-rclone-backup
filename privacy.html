@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy policy for a private, single-user Proxmox backup application.">
+  <title>Privacy Policy – Proxmox Backup</title>
+  <style>
+    :root { color-scheme: light dark; font: 17px/1.65 system-ui, sans-serif; }
+    body { max-width: 760px; margin: 8vh auto; padding: 0 1.25rem; }
+    h1 { line-height: 1.2; }
+    a { color: #356ac3; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: 13 November 2026</p>
+
+    <h2>Purpose</h2>
+    <p>“Proxmox Backup” is a private, single-user setup of rclone. It is operated solely to back up the operator’s own Proxmox system to the operator’s own Google Drive. It is not offered to other users and has no other user accounts.</p>
+
+    <h2>Google Drive access</h2>
+    <p>rclone uses the Google Drive API. The currently documented configuration requests the OAuth scope <code>drive</code>, which can allow access to files in the authorizing Google Drive account. The backup jobs use the <code>Proxmox-Backup</code> destination, but this scope itself does not restrict access to that folder. The permission shown on Google’s consent screen is authoritative.</p>
+    <p>The setup accesses selected Proxmox backups and configuration archives, OAuth credentials needed for API requests, and local technical transfer and error logs. rclone runs on the Proxmox server; the operator does not run a separate application server for this backup tool.</p>
+
+    <h2>Encryption, storage and retention</h2>
+    <p>The backup jobs use rclone crypt to encrypt file contents and names before upload. The crypt configuration and passwords are kept separately from the backup files and must be protected by the operator. Encryption does not conceal all metadata, such as transfer timing and volume.</p>
+    <p>Google receives the API requests and stores the uploaded files encrypted by rclone crypt. The rclone OAuth credentials are stored locally on the Proxmox server. Google may process data under its own terms; see <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>.</p>
+    <p>Proxmox configuration archives are retained for 180 days. The retention of the remote PBS backup mirror follows the local PBS prune settings. Local log retention is not specified here. Deletions are applied by the relevant cleanup or synchronization job; items retained in Google Drive trash or version history may remain available according to Google’s settings.</p>
+
+    <h2>Google API data use</h2>
+    <p>Data received through Google APIs is used only to perform the backup and file-management operations initiated by the operator. It is not used for advertising or sold. The application’s use of Google user data is intended to comply with the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+
+    <h2>This website</h2>
+    <p>These static information pages are hosted by GitHub Pages. GitHub states that it logs and stores visitors’ IP addresses for security purposes. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s Privacy Statement</a>. This site does not use analytics or advertising services.</p>
+
+    <h2>Revoking access</h2>
+    <p>The operator can revoke the OAuth permission in the Google Account’s third-party connections settings. Revoking access does not automatically delete backups already stored in Google Drive.</p>
+
+    <p><a href="index.html">Application home</a></p>
+  </main>
+</body>
+</html>
